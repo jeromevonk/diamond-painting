@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Painting Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="controls">
+            <h1>Diamond Painting Digital</h1>
+
+            <div class="upload-section">
+                <input type="file" id="imageInput" accept="image/*" aria-label="Upload image file">
+            </div>
+
+            <div class="config-section">
+                <label for="gridSize">
+                    Grid Size:
+                    <input type="range" id="gridSize" min="10" max="100" value="30" aria-label="Grid size slider">
+                    <span id="gridSizeValue">30x30</span>
+                </label>
+
+                <label for="colorCount">
+                    Number of Colors:
+                    <input type="range" id="colorCount" min="2" max="30" value="10" aria-label="Color count slider">
+                    <span id="colorCountValue">10</span>
+                </label>
+
+                <label for="diamondSize">
+                    Diamond Size:
+                    <input type="range" id="diamondSize" min="5" max="20" value="10" aria-label="Diamond size slider">
+                    <span id="diamondSizeValue">10px</span>
+                </label>
+
+                <button id="processBtn" class="process-button">Process Image</button>
+            </div>
+
+            <div class="color-palette" id="colorPalette">
+                <h3>Color Palette</h3>
+                <div id="colors" role="list" aria-label="Color selection palette"></div>
+                <div id="selectedColor">Selected color: None</div>
+            </div>
+
+            <div class="progress">
+                <div id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                <span id="progressText">0% complete</span>
+            </div>
+
+            <div class="actions">
+                <button id="autoCompleteBtn" class="action-button">🎨 Auto Complete</button>
+                <button id="clearBtn" class="action-button danger">Clear All</button>
+            </div>
+        </div>
+
+        <div id="canvas-container" role="application" aria-label="Diamond painting canvas"></div>
+    </div>
+
+    <script src="sketch.js"></script>
+    <script src="image-processor.js"></script>
+</body>
+
+</html>
